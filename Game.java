@@ -10,8 +10,7 @@ public class Game {
     Side currentTurn;
 
     public Game(){
-        // todo: write a constructor that initializes the game with a new board
-        // hint: you are also responsible for tracking whose turn it is
+    
     	this.b= new Board();
         this.currentTurn = Side.WHITE;
     	
@@ -21,18 +20,7 @@ public class Game {
         return "Queen's Game-bit";
     }
     public boolean canMove(int x, int y, int destX, int destY, Side s){
-       /* TODO write a method that checks if a piece at coordinates x,y can move to coordinates destX,destY
-       Conditions for false:
-       - Origin or destination coordinates are outside the board
-       - Piece at origin is null or captured
-       - Piece at origin is not of the same side as s
-            - You can check this using piece.getSide()
-       - Piece cannot move to the destination by piece movement rules
-            - You should check this using piece.canMove(destX, destY, b)
-       - Destination has a piece of the same Side as the player
-       - piece must move "through" a piece to get from (x,y) to (destX,destY) (use isVisible())
-            - The knight is the except to this rule. The knight can hop "over" pieces, so be sure to check for this.
-          */
+      
     	Boolean move = true;
     	if(x<0||x>7||y<0||y>7||destX<0||destX>7||destY<0||destY>7) {
     		move = false;
@@ -57,21 +45,7 @@ public class Game {
         return move;
     }
 
-    /**
-     * This method is provided to you in order to help with canMove().
-     *
-     * In chess, no piece except the knight can "move through" or "hop over" a piece that's in its way
-     *
-     * This method checks that there are no pieces along the path from (x,y) to (destX,destY).
-     * Note that a "path" is only defined if (x,y) and (destX,destY) are on the same row, column, or diagonal.
-     * If the requested path is undefined, the method throws an exception.
-     *
-     * If the path is defined and no piece is found along the path, the method returns true.
-     *
-     * Don't worry about how this method works or tests and edge cases for it, we will
-     * grade you assuming you keep it exactly as provided and use it as a part of your
-     * canMove() method.
-     */
+    
     private boolean isVisible(int x, int y, int destX, int destY) {
         int diffX = destX - x;
         int diffY = destY - y;
@@ -195,7 +169,7 @@ public class Game {
      *
      */
     public boolean isInCheck(Side side) {
-        // TODO write this method
+      
     	Boolean check = false;
     	King king =b.getKing(side);
         Side oppo = Side.negate(side);
