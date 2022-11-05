@@ -2,7 +2,6 @@
 
 public class Bishop extends Piece {
     public Bishop(int x, int y, Side side, Board board) {
-        // TODO: Call super constructor
     	super(x,y,side,board);
     }
 
